@@ -1,4 +1,4 @@
-import { EqualizerConfigurationPreset, QueryType } from 'discord-player';
+import { QueryType } from 'discord-player';
 import { ChannelType, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { SlashCommandProps } from 'commandkit';
 import { player } from '../..';
@@ -131,7 +131,6 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	}
 
 	queue.filters.filters?.setFilters([]);
-	queue.filters.equalizer?.setEQ(EqualizerConfigurationPreset.Live);
 	queue.dispatcher?.setVolume(100);
 	return interaction.editReply({
 		embeds: [embed],
