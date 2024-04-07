@@ -21,10 +21,10 @@ You can help us in the production of this bot by promoting it through the server
 
 | Feauture|Available|
 |:----------|-----------:|
-|Music Bot|:joy: Yes|
-|Moderation Bot|:check: Yes|
-|Ticket Bot|:check: No|
-|GPT Bot|:check: No|
+|Music Bot|:check_mark: Yes|
+|Moderation Bot|:check_mark: Yes|
+|Ticket Bot|:x: No|
+|GPT Bot|:x: No|
 
 
 
