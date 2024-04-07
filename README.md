@@ -7,7 +7,6 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/domeepc/Coder-panda-bot)
 
 
-
 ## Bot description
 This bot has a few functions. Like:
 - Music Bot
