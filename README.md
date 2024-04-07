@@ -21,7 +21,7 @@ You can help us in the production of this bot by promoting it through the server
 
 | Feauture|Available|
 |:----------|-----------:|
-|Music Bot|:check: Yes|
+|Music Bot|:joy: Yes|
 |Moderation Bot|:check: Yes|
 |Ticket Bot|:check: No|
 |GPT Bot|:check: No|
