@@ -1,5 +1,5 @@
 import { ShardingManager } from 'discord.js';
-import config from './config';
+import config from './config.js';
 import express from 'express';
 
 const manager = new ShardingManager(`${__dirname}/index.js`, {

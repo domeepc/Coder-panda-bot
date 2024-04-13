@@ -20,7 +20,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	const channel = member?.voice.channelId!;
 
 	if (!channel) {
-		return interaction.editReply('User is not connected in a voice channel!');
+		return interaction.editReply(
+			'User is not connected in a voice channel!',
+		);
 	}
 
 	const ch = await client.channels.fetch(interaction.channelId);

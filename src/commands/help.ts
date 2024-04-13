@@ -15,7 +15,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	await interaction.deferReply();
 
 	if (!interaction.inCachedGuild()) {
-		interaction.editReply('You need to use this panda command in a server.');
+		interaction.editReply(
+			'You need to use this panda command in a server.',
+		);
 		return;
 	}
 

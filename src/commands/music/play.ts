@@ -21,7 +21,10 @@ export const data = new SlashCommandBuilder()
 			.setName('playlist')
 			.setDescription('Plays a playlist from youtube')
 			.addStringOption((option) =>
-				option.setName('url').setDescription('playlist url').setRequired(true),
+				option
+					.setName('url')
+					.setDescription('playlist url')
+					.setRequired(true),
 			),
 	)
 	.addSubcommand((subcommand) =>
@@ -29,7 +32,10 @@ export const data = new SlashCommandBuilder()
 			.setName('song')
 			.setDescription('Plays a track from youtube')
 			.addStringOption((option) =>
-				option.setName('url').setDescription('song url').setRequired(true),
+				option
+					.setName('url')
+					.setDescription('song url')
+					.setRequired(true),
 			),
 	);
 export async function run({ interaction, client, handler }: SlashCommandProps) {
@@ -42,7 +48,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	const channel = member?.voice.channelId!;
 
 	if (!channel) {
-		return interaction.editReply('User is not connected in a voice channel!');
+		return interaction.editReply(
+			'User is not connected in a voice channel!',
+		);
 	}
 
 	const ch = await client.channels.fetch(interaction.channelId);

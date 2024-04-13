@@ -11,7 +11,8 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"include": ["*.ts", "*.js"]
+		"include": ["*.ts", "*.js"],
+		"indentWidth": 4
 	},
 	"javascript": {
 		"formatter": {

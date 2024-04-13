@@ -8,14 +8,18 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	await interaction.deferReply();
 
 	if (!interaction.inCachedGuild()) {
-		interaction.editReply('You need to use this panda command in a server.');
+		interaction.editReply(
+			'You need to use this panda command in a server.',
+		);
 		return;
 	}
 
 	const channel = await client.channels.fetch(interaction.channelId);
 
 	if (channel?.type !== ChannelType.GuildText) {
-		interaction.editReply('This panda command is used in text channels.');
+		interaction.editReply(
+			'This panda command is used in text channels.',
+		);
 		return;
 	}
 
@@ -31,11 +35,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 		.join(', ')
 		.replace('@everyone,', '');
 
-	embed
-		.setTitle('Server Info')
-		.setDescription(
-			`Owner: <@${ownerId}>\nMember count: ${memberCount}\nRoles: ${rolesString}`,
-		);
+	embed.setTitle('Server Info').setDescription(
+		`Owner: <@${ownerId}>\nMember count: ${memberCount}\nRoles: ${rolesString}`,
+	);
 
 	return interaction.editReply({
 		embeds: [embed],
