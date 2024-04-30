@@ -3,27 +3,15 @@
 FROM oven/bun:slim as base
 WORKDIR /usr/src/app
 
-# install with --production (exclude devDependencies)
-RUN mkdir -p /temp/prod
-COPY package.json bun.lockb /temp/prod/
-RUN cd /temp/prod && bun install --production
+# install dependencies
+FROM base as dependencies
+COPY package.json .
+COPY bun.lockb .
+RUN bun i --production
+RUN bun build
 
-# copy node_modules from temp directory
-# then copy all (non-ignored) project files into the image
-FROM base AS prerelease
-COPY --from=install /temp/dev/node_modules node_modules
+FROM dependencies as release
 COPY . .
-
-# [optional] tests & build
-ENV NODE_ENV=production
-RUN bun run build
-
-# copy production dependencies and source code into final image
-FROM base AS release
-COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/dist dist
-COPY --from=prerelease /usr/src/app/package.json .
-
 # run the app
 USER bun
 CMD [ "bun", "run", "start" ]
