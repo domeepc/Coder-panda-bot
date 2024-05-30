@@ -8,7 +8,7 @@ FROM base as dependencies
 COPY package.json .
 COPY bun.lockb .
 RUN bun i --production
-RUN bun run build
+RUN bunx tsc
 
 FROM dependencies as release
 COPY . .
