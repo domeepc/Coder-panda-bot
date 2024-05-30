@@ -2,12 +2,12 @@
  * Imports the Client class from the discord.js library.
  * This allows creating a Discord bot client instance.
  */
-import Discord, { GatewayIntentBits } from 'discord.js';
+import { Client, GatewayIntentBits } from 'discord.js';
 import config from './config';
 import { Player } from 'discord-player';
 import { CommandKit } from 'commandkit';
 
-export const client = new Discord.Client({
+export const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
 		GatewayIntentBits.GuildMessages,

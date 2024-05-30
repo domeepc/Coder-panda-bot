@@ -28,7 +28,7 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 		return;
 	}
 
-	const thread = await (channel as TextChannel).threads.create({
+	const thread = await channel.threads.create({
 		name: `support-${Date.now()}`,
 		reason: `Support ticket ${Date.now()}`,
 	});

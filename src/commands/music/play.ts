@@ -75,7 +75,7 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	if (interaction.options.getSubcommand() === 'song') {
 		const url = interaction.options.getString('url')!;
 		const result = await player.search(url, {
-			requestedBy: interaction.user,
+			requestedBy: interaction.user.globalName!,
 			searchEngine: QueryType.YOUTUBE_VIDEO,
 		});
 		if (result.tracks.length === 0) {
@@ -93,7 +93,7 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	} else if (interaction.options.getSubcommand() === 'search') {
 		const url = interaction.options.getString('keywords')!;
 		const result = await player.search(url, {
-			requestedBy: interaction.user,
+			requestedBy: interaction.user.globalName!,
 			searchEngine: QueryType.AUTO,
 		});
 		if (result.tracks.length === 0) {
@@ -111,7 +111,7 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 	} else if (interaction.options.getSubcommand() === 'playlist') {
 		const url = interaction.options.getString('url')!;
 		const result = await player.search(url, {
-			requestedBy: interaction.user,
+			requestedBy: interaction.user.globalName!,
 			searchEngine: QueryType.YOUTUBE_PLAYLIST,
 		});
 		if (result.tracks.length === 0) {
