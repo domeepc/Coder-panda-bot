@@ -40,7 +40,9 @@ export async function run({ interaction, client, handler }: SlashCommandProps) {
 		return;
 	}
 
-	const targetUser = interaction.options.getMember('target-user');
+	const targetUser = interaction.options.getMember(
+		'target-user',
+	) as GuildMember;
 
 	const reason = interaction.options.getString('reason') ?? 'No reason given';
 
