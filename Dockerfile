@@ -5,10 +5,7 @@ WORKDIR /usr/app
 
 # install dependencies
 FROM base as dependencies
-COPY package.json .
-COPY bun.lockb .
-COPY tsconfig.json .
-COPY /src .
+COPY . .
 RUN bun i
 RUN bun run build
 
