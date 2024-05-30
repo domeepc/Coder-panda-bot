@@ -7,6 +7,7 @@ WORKDIR /usr/src/app
 FROM base as dependencies
 COPY package.json .
 COPY bun.lockb .
+COPY tsconfig.json .
 RUN bun i
 RUN bun run build
 
