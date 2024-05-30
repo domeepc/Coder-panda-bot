@@ -8,7 +8,7 @@ FROM base as dependencies
 COPY package.json .
 COPY bun.lockb .
 COPY tsconfig.json .
-COPY src .
+COPY /src .
 RUN bun i
 RUN bun run build
 
