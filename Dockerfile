@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 FROM base as dependencies
 COPY package.json .
 COPY bun.lockb .
-RUN bun i --production
-RUN bunx tsc
+RUN bun i
+RUN bun run build
 
 FROM dependencies as release
 COPY . .
